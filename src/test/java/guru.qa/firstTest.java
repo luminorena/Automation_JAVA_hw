@@ -14,8 +14,8 @@ public class firstTest {
     }
 
     void firstTest2(){
-        int a = 4;
-        int b = 9;
+        int a = 49;
+        int b = 94;
         Assertions.assertFalse(a >= b);
     }
 }
