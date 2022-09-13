@@ -9,5 +9,13 @@ public class firstTest {
         int a = 4;
         int b = 9;
         Assertions.assertTrue(a < b);
+
+
+    }
+
+    void firstTest2(){
+        int a = 4;
+        int b = 9;
+        Assertions.assertFalse(a > b);
     }
 }
