@@ -8,7 +8,7 @@ public class firstTest {
     void firstTest(){
         int a = 4;
         int b = 9;
-        Assertions.assertTrue(a < b);
+        Assertions.assertTrue(a <= b);
 
 
     }
@@ -16,6 +16,6 @@ public class firstTest {
     void firstTest2(){
         int a = 4;
         int b = 9;
-        Assertions.assertFalse(a > b);
+        Assertions.assertFalse(a >= b);
     }
 }
