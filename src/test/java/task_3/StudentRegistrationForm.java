@@ -48,6 +48,8 @@ public class StudentRegistrationForm {
 
         // submitting checks
 
+        // window title check
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         // Student Name
         $x("//td[2]").shouldHave(text(firstName + "\n" + lastName));
         // Student Email
