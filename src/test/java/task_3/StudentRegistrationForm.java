@@ -1,8 +1,6 @@
 package task_3;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -28,72 +26,6 @@ public class StudentRegistrationForm {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
-    @AfterAll
-    static void TearDown() {
-        $("#closeLargeModal").click();
-    }
-
-
-
-   /*
-    @Test
-    void doRegisterIndividualChecks() {
-        //Name
-        $("#firstName")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-        $("#lastName")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-        //Email - в идеале надо генерить данные, а потом проверять по регулярке совпадение
-        $("#userEmail")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-        Boolean emailRegex = Pattern
-                .matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", email);
-        Assertions.assertTrue(emailRegex);
-
-        // Gender
-        $x("\"//div[@id='genterWrapper']/div[2]/div[2]/label\"")
-                .shouldHave(Condition
-                        .cssValue("color", "#28a745"));
-        // Mobile
-        $("#userNumber")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-        Boolean phoneRegex = Pattern
-                .matches("\\d*", String.valueOf(phoneNumber));
-        Assertions.assertTrue(phoneRegex);
-        // Date of Birth
-        $("#dateOfBirthInput")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-        // Subjects
-        $("#subjectsInput").shouldHave(text("Hindi"));
-        // Hobbies
-        $x("//div[@id='hobbiesWrapper']/div[2]/div/label")
-                .shouldHave(Condition
-                        .cssValue("background-image"
-                                , "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\")"));
-
-        // picture
-        $("#uploadPicture").shouldHave(text("11.png"));
-        // current address
-        $("#currentAddress").shouldHave(text(currentAddress));
-        // state and city
-        $("#react-select-3-input").shouldHave(text("NCR"));
-        $("#react-select-4-input").shouldHave(text("Delhi"));
-
-
-    }
-
-    */
-
     @Test
     void doRegisterFillForm() throws InterruptedException {
         open("/automation-practice-form");
@@ -105,48 +37,43 @@ public class StudentRegistrationForm {
         $("#dateOfBirthInput").click();
         $("#subjectsInput").setValue("Hindi").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-
-
         $("#uploadPicture").uploadFile(new File("src/test/resources/11.png"));
         $("#currentAddress").setValue(currentAddress);
-
         $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#react-select-4-input").setValue("Delhi").pressEnter();
-
 
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         $("#submit").click();
 
+        // submitting checks
 
-    }
-
-    @Test
-    void SubmittingFormChecks() {
         // Student Name
-        $x("//td[2]").shouldHave(Condition.attribute(firstName + "\n" + lastName));
+        $x("//td[2]").shouldHave(text(firstName + "\n" + lastName));
         // Student Email
-        $x("//tr[2]/td[2]").shouldHave(Condition.attribute(email));
+        $x("//tr[2]/td[2]").shouldHave(text(email));
         // Gender
-        $x("//tr[3]/td[2]").shouldHave(Condition.attribute("Female"));
+        $x("//tr[3]/td[2]").shouldHave(text("Female"));
         // Mobile
-        $x("//tr[4]/td[2]").shouldHave(Condition.attribute(String.valueOf(phoneNumber)));
+        $x("//tr[4]/td[2]").shouldHave(text(String.valueOf(phoneNumber)));
         // Date of Birth
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM, yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy");
         String text = dtf.format(LocalDateTime.now());
         System.out.println(text);
         $x("//tr[5]/td[2]").shouldHave(text(text));
         // Subjects
-        $x("//tr[6]/td[2]").shouldHave(Condition.attribute("Hindi"));
+        $x("//tr[6]/td[2]").shouldHave(text("Hindi"));
         // Hobbies
-        $x("//tr[7]/td[2]").shouldHave(Condition.attribute("Sports"));
+        $x("//tr[7]/td[2]").shouldHave(text("Sports"));
         // Picture
-        $x("//tr[8]/td[2]").shouldHave(Condition.attribute("11.png"));
+        $x("//tr[8]/td[2]").shouldHave(text("11.png"));
         //Address
-        $x("//tr[9]/td[2]").shouldHave(Condition.attribute("Address"));
+        $x("//tr[9]/td[2]").shouldHave(text("Address"));
         // State and City
-        $x("//tr[10]/td[2]").shouldHave(Condition.attribute("NCR Delhi"));
+        $x("//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
 
+        $("#closeLargeModal").click();
     }
+
 
 }
