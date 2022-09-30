@@ -8,8 +8,9 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationForm {
@@ -29,50 +30,52 @@ public class StudentRegistrationForm {
     @Test
     void doRegisterFillForm() throws InterruptedException {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue(String.valueOf(phoneNumber));
         $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("September");
+        $(".react-datepicker__year-select").selectOption("2008");
+        $(".react-datepicker__day--009:not(.react-datepicker__day--outside-month)")
+                .click();
+
         $("#subjectsInput").setValue("Hindi").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFile(new File("src/test/resources/11.png"));
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue("NCR").pressEnter();
         $("#react-select-4-input").setValue("Delhi").pressEnter();
-
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
         $("#submit").click();
 
         // submitting checks
 
-        // window title check
+        $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        // Student Name
-        $x("//td[2]").shouldHave(text(firstName + "\n" + lastName));
-        // Student Email
-        $x("//tr[2]/td[2]").shouldHave(text(email));
-        // Gender
-        $x("//tr[3]/td[2]").shouldHave(text("Female"));
-        // Mobile
-        $x("//tr[4]/td[2]").shouldHave(text(String.valueOf(phoneNumber)));
-        // Date of Birth
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy");
-        String text = dtf.format(LocalDateTime.now());
-        System.out.println(text);
-        $x("//tr[5]/td[2]").shouldHave(text(text));
-        // Subjects
-        $x("//tr[6]/td[2]").shouldHave(text("Hindi"));
-        // Hobbies
-        $x("//tr[7]/td[2]").shouldHave(text("Sports"));
-        // Picture
-        $x("//tr[8]/td[2]").shouldHave(text("11.png"));
-        //Address
-        $x("//tr[9]/td[2]").shouldHave(text("Address"));
-        // State and City
-        $x("//tr[10]/td[2]").shouldHave(text("NCR Delhi"));
+        $(".table-responsive table").$(byText("Student Name"))
+                .parent().shouldHave(text(firstName + "\n" + lastName));
+        $(".table-responsive table").$(byText("Student Email"))
+                .parent().shouldHave(text(email));
+        $(".table-responsive table").$(byText("Gender"))
+                .parent().shouldHave(text("Female"));
+        $(".table-responsive table").$(byText("Mobile"))
+                .parent().shouldHave(text(String.valueOf(phoneNumber)));
+        $(".table-responsive table").$(byText("Date of Birth"))
+                .parent().shouldHave(text("09 September,2008"));
+        $(".table-responsive table").$(byText("Subjects"))
+                .parent().shouldHave(text("Hindi"));
+        $(".table-responsive table").$(byText("Hobbies"))
+                .parent().shouldHave(text("Sports"));
+        $(".table-responsive table").$(byText("Picture"))
+                .parent().shouldHave(text("11.png"));
+        $(".table-responsive table").$(byText("Address"))
+                .parent().shouldHave(text("Address"));
+        $(".table-responsive table").$(byText("State and City"))
+                .parent().shouldHave(text("NCR Delhi"));
 
         $("#closeLargeModal").click();
     }
