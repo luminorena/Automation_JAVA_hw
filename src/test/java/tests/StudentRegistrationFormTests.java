@@ -32,8 +32,9 @@ public class StudentRegistrationFormTests {
                 .setHobbies("Sports")
                 .setFileUpload("src/test/resources/11.png")
                 .setAddress("currentAddress")
-                .setStateAndCity("NCR", "Delhi");
-                $("#submit").click();
+                .setStateAndCity("NCR", "Delhi")
+                .clickSubmit();
+
 
         // submitting checks
 
@@ -47,8 +48,9 @@ public class StudentRegistrationFormTests {
                         .checkResult("Hobbies", "Sports")
                         .checkResult("Picture","11.png")
                         .checkResult("Address", "Address")
-                        .checkResult("State and City", "NCR Delhi");
-        $("#closeLargeModal").click();
+                        .checkResult("State and City", "NCR Delhi")
+                        .closeModalWindow();
+
     }
 
     @Test
@@ -58,9 +60,8 @@ public class StudentRegistrationFormTests {
                 .setLastName("Petrov")
                 .setEmail("petrov@yandex.ru")
                 .setGender("Male")
-                .setPhoneNumber("1234567890");
-
-        $("#submit").click();
+                .setPhoneNumber("1234567890")
+                .clickSubmit();
 
         // submitting checks
 
@@ -68,8 +69,8 @@ public class StudentRegistrationFormTests {
                 .checkResult("Student Name", "Kolya" + "\n" + "Petrov")
                 .checkResult("Student Email", "petrov@yandex.ru")
                 .checkResult("Gender", "Male")
-                .checkResult("Mobile", "1234567890");
-        $("#closeLargeModal").click();
+                .checkResult("Mobile", "1234567890")
+                .closeModalWindow();
     }
 
 

@@ -28,7 +28,9 @@ public class StudentRegistrationFormPage {
             ,uploadFile = $("#uploadPicture")
             ,currentAddress = $("#currentAddress")
             ,stateComboBox = $("#state")
-            ,cityComboBox = $("#city");
+            ,cityComboBox = $("#city")
+            ,submitButton =$("#submit")
+            ,closeModalButton =  $("#closeLargeModal");
 
     // Actions
     public StudentRegistrationFormPage openPage(){
@@ -100,6 +102,16 @@ public class StudentRegistrationFormPage {
         stateComboBox.$(byText(state)).click();
         cityComboBox.click();
         cityComboBox.$(byText(city)).click();
+        return this;
+    }
+
+    public StudentRegistrationFormPage clickSubmit () {
+        submitButton.click();
+        return this;
+    }
+
+    public StudentRegistrationFormPage closeModalWindow(){
+        closeModalButton.click();
         return this;
     }
 
