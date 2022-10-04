@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.ModalWindowComponent;
+import tests.TestBase;
 
 import java.io.File;
 
@@ -10,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationFormPage {
+public class StudentRegistrationFormPage extends TestBase {
 
     public final static String TITLE_TEXT = "Student Registration Form";
     // Components
@@ -106,7 +107,7 @@ public class StudentRegistrationFormPage {
     }
 
     public StudentRegistrationFormPage clickSubmit () {
-        submitButton.click();
+        submitButton.scrollTo().click();
         return this;
     }
 
