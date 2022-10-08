@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationFormPage;
 
 
-public class StudentRegistrationFormTests extends TestBase {
+public class StudentRegistrationFormTests extends RegistrationFormData {
 
     StudentRegistrationFormPage studentRegistrationFormPage
             = new StudentRegistrationFormPage();

@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 
 import java.util.Random;
 
-public class TestBase {
+public class RegistrationFormData {
 
     static Faker faker = new Faker();
     String firstName = getFirstName();
