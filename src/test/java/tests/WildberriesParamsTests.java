@@ -33,9 +33,9 @@ public class WildberriesParamsTests {
 
     static Stream<Arguments> arraySearchTestData() {
         return Stream.of(
-                Arguments.of(ItemName.платье, List.of("Крестильные платья"
+                Arguments.of(ItemName.valueOf("DRESS"), List.of("Крестильные платья"
                         , "Крестильные платья для малышей")),
-                Arguments.of(ItemName.брюки, List.of("Брюки",
+                Arguments.of(ItemName.valueOf("TROUSERS"), List.of("Брюки",
                         "Брюки для малышей"))
         );
     }
@@ -44,7 +44,7 @@ public class WildberriesParamsTests {
     @ParameterizedTest(name = "Проверка совпадения массива объектов по запросу {0}")
     void checkArraySearchTests(ItemName itemName, List<String> objects) {
         open("https://www.wildberries.ru/");
-        $("#searchInput").setValue(itemName.name()).pressEnter();
+        $("#searchInput").setValue(itemName.getTitle()).pressEnter();
         $$("#filters .filter").get(0)
                 .$$(".filter__item")
                 .first(2)
@@ -56,7 +56,7 @@ public class WildberriesParamsTests {
     void checkLocale(MainElements mainElements) {
         open("https://www.wildberries.ru/");
         $$("a.navbar-pc__link.j-wba-header-item")
-                .find(text(mainElements.name())).shouldBe(visible);
+                .find(text(mainElements.getTitle())).shouldBe(visible);
 
     }
 
