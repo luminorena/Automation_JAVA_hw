@@ -1,4 +1,4 @@
-package data;
+package ParametrizedTests.data;
 
 public enum MainElements {
     ADDRESSES ("Адреса"),

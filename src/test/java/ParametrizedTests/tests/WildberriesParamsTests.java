@@ -1,8 +1,8 @@
-package tests;
+package ParametrizedTests.tests;
 
+import ParametrizedTests.data.ItemName;
+import ParametrizedTests.data.MainElements;
 import com.codeborne.selenide.CollectionCondition;
-import data.ItemName;
-import data.MainElements;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
