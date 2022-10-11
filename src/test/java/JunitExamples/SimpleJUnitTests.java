@@ -43,7 +43,7 @@ public class SimpleJUnitTests {
 
     }
 
-    static Stream<Arguments> SelenideButtonsTestDataProvider(){
+    static Stream<Arguments> selenideButtonsTestDataProvider(){
         return Stream.of(
                 Arguments.of(Locale.EN, List.of("Quick start"
                         ,"Docs", "FAQ", "Blog", "Javadoc", "Users", "Quotes")),
@@ -51,9 +51,9 @@ public class SimpleJUnitTests {
                         "Док", "ЧАВО", "Блог", "Javadoc", "Пользователи", "Отзывы"))
         );
     }
-    @MethodSource ("SelenideButtonsTestDataProvider")
+    @MethodSource ("selenideButtonsTestDataProvider")
     @ParameterizedTest (name = "Проверка отображения названия кнопок для локали: {0}")
-    void SelenideButtonsTest(Locale locale, List<String> buttonsTexts) {
+    void selenideButtonsTest(Locale locale, List<String> buttonsTexts) {
         open("https://selenide.org/");
         // $$ - ищет все элементы, удовлетворяющие селектору
         $$("#languages a").find(text(locale.name())).click();
@@ -69,5 +69,7 @@ public class SimpleJUnitTests {
         $$("#languages a").find(text(locale.name())).shouldBe(visible);
 
     }
+
+
 
 }
