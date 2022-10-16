@@ -1,5 +1,20 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+allure {
+    report {
+        version.set("2.18.1");
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.18.1")
+            }
+        }
+    }
 }
 
 group 'org.example'
@@ -26,7 +41,8 @@ dependencies {
             "com.codeborne:pdf-test:1.7.0",
             "com.codeborne:xls-test:1.4.3",
             "com.opencsv:opencsv:5.7.0",
-            "com.fasterxml.jackson.core:jackson-databind:2.13.4"
+            "com.fasterxml.jackson.core:jackson-databind:2.13.4",
+            "io.qameta.allure:allure-selenide:2.18.1"
     )
 
 }
