@@ -17,6 +17,7 @@ public class SelenideTest {
     public void testIssueSearch(){
         Configuration.holdBrowserOpen = true;
         SelenideLogger.addListener("allure", new AllureSelenide());
+        //SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         open("https://github.com/");
         $(".header-search-input")
                 .setValue("eroshenkoam/allure-example")

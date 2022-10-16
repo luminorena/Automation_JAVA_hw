@@ -3,7 +3,6 @@ package AllureLesson;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +38,16 @@ public class StepsTest {
            $(withText("#" + ISSUE)).should(Condition.exist);
        });
 
+    }
 
-
+   @Test
+    public void testAnnotatedStep(){
+       SelenideLogger.addListener("allure", new AllureSelenide());
+        WebSteps steps = new WebSteps();
+        steps.openMainPage();
+        steps.searchForRepository(REPOSITORY);
+        steps.clickOnRepositoryRepo(REPOSITORY);
+        steps.openIssuesTab();
+        steps.shouldSeeIssueWithNumber(ISSUE);
     }
 }
