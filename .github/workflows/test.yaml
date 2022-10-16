@@ -9,5 +9,4 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-      - run: npm install -g bats
       - run: ./gradlew clean test
