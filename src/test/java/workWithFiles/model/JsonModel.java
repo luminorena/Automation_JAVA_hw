@@ -1,4 +1,4 @@
-package WorkWithFiles.model;
+package workWithFiles.model;
 
 import java.util.List;
 

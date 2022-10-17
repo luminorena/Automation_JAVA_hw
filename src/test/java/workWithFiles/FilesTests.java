@@ -1,4 +1,4 @@
-package WorkWithFiles;
+package workWithFiles;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;

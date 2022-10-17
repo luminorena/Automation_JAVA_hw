@@ -1,6 +1,6 @@
-package WorkWithFiles;
+package workWithFiles;
 
-import WorkWithFiles.model.JsonModel;
+import workWithFiles.model.JsonModel;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;

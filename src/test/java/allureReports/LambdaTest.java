@@ -1,4 +1,4 @@
-package AllureReports;
+package allureReports;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
@@ -19,14 +19,14 @@ public class LambdaTest {
         step("Открыть главную страницу", () -> {
             open("https://github.com/");
         });
-        step("Найти репозиторий {REPOSITORY}", () -> {
+        step("Найти репозиторий + REPOSITORY", () -> {
             $(name("q")).setValue(REPOSITORY).pressEnter();
         });
-        step("Перейти в репозиторий {REPOSITORY}", () -> {
+        step("Перейти в репозиторий + REPOSITORY", () -> {
             $(linkText(REPOSITORY)).click();
         });
-        step("Проверить, что репозиторий {REPOSITORY} содержит" +
-                "название  {CHECKEDTABNAME}", () -> {
+        step("Проверить, что репозиторий + REPOSITORY + содержит" +
+                "название  + CHECKEDTABNAME", () -> {
             $(".js-repo-nav").shouldHave(Condition.text(CHECKEDTABNAME));
         });
 

@@ -1,4 +1,4 @@
-package ParametrizedTests.data;
+package parametrizedTests.data;
 
 public enum ItemName {
     DRESS ("платье"),

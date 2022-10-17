@@ -1,4 +1,4 @@
-package AllureReports;
+package allureReports;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ public class WebStepTest {
 
     @Test
     public void webStepTest() {
-        SteppedTest steppedTest = new SteppedTest();
+        WebSteps steppedTest = new WebSteps();
         steppedTest.openMainPage()
                 .findRepository(REPOSITORY)
                 .goToRepository(REPOSITORY)
