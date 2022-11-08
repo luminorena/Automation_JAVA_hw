@@ -1,4 +1,4 @@
-package selenide_1;
+package selenide_lesson_1;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
