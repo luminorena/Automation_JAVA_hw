@@ -39,21 +39,23 @@ compileTestJava {
 }
 
 dependencies {
-    testImplementation ('com.codeborne:selenide:6.9.0',
-            'com.codeborne:selenide:6.9.0',
+    implementation ('com.google.code.findbugs:jsr305:3.0.2', 'com.toedter:jcalendar:1.4')
+    testImplementation ('com.codeborne:selenide:6.10.1',
+            'com.codeborne:selenide:6.10.1',
             "org.junit.jupiter:junit-jupiter:5.9.1",
             "com.github.javafaker:javafaker:1.0.2",
             "org.assertj:assertj-core:3.23.1",
             "com.codeborne:pdf-test:1.7.0",
             'com.codeborne:xls-test:1.6.0',
             'com.opencsv:opencsv:5.7.1',
-            'com.fasterxml.jackson.core:jackson-databind:2.13.4.2',
-            'io.qameta.allure:allure-selenide:2.19.0'
-    )
-    testRuntimeOnly('org.slf4j:slf4j-simple:2.0.3')
+            'com.fasterxml.jackson.core:jackson-databind:2.14.0',
+            'io.qameta.allure:allure-selenide:2.20.0'
 
+    )
+    testRuntimeOnly('org.slf4j:slf4j-simple:2.0.5')
 }
 
 test {
+    systemProperties += System.properties
     useJUnitPlatform()
 }
