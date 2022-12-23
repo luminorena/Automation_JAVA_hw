@@ -9,7 +9,7 @@
     "enableChart": true
   },
   "telegram": {
-    "token": "5288404123:AAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI",
+    "token": "",
     "chat": "-1001874608719",
     "replyTo": ""
   }
