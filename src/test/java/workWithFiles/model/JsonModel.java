@@ -1,3 +1,4 @@
+/*
 package workWithFiles.model;
 
 import java.util.List;
@@ -22,3 +23,4 @@ public class JsonModel {
 
 
 }
+*/
