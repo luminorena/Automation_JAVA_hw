@@ -1,0 +1,15 @@
+5288404123:AAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI
+t.me/Bakhuta_autotests_bot
+-1001874608719
+https://api.telegram.org/bot5288404123:AAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI/getUpdates
+https://t.me/+0glEMMwBlbxiYmEy
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1001874608719", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/botAAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI/sendMessage
+
+curl -X POST \
+     -H 'Content-Type: application/json' \
+     -d '{"chat_id": "-1001874608719", "text": "This is a test from curl", "disable_notification": true}' \
+     https://api.telegram.org/botAAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI/sendMessage
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1001874608719", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot5288404123:AAGVgGgpkrW6j6s51GOtdwU4qZ6WXHa1bfI/sendMessage
+
+java "-DconfigFile=notifications/telegram.json" -jar notifications/allure-notifications-4.2.1.jar
