@@ -52,7 +52,6 @@ public class FilesTests {
         }
     }
     @Tag("xlsx")
-    @Test
  void xlsxTest() throws IOException {
         try (InputStream is = cl.getResourceAsStream("new_dbEnd.xlsx")) {
             XLS xls = new XLS(is);
