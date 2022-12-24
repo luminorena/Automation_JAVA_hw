@@ -7,6 +7,7 @@ import com.opencsv.exceptions.CsvException;
 import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -50,7 +51,7 @@ public class FilesTests {
             Assertions.assertThat(row[1]).isEqualTo("p2");
         }
     }
-  /*  @Disabled
+    @Tag("xlsx")
     @Test
  void xlsxTest() throws IOException {
         try (InputStream is = cl.getResourceAsStream("new_dbEnd.xlsx")) {
@@ -64,7 +65,7 @@ public class FilesTests {
             Assertions.assertThat(stringCellValue).contains("2010-01-01 00:00:00");
 
         }
-    }*/
+    }
 
 
     @Test
