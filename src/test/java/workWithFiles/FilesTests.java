@@ -51,7 +51,7 @@ public class FilesTests {
             Assertions.assertThat(row[1]).isEqualTo("p2");
         }
     }
-    @Tag("xlsx")
+/*    @Tag("xlsx")
  void xlsxTest() throws IOException {
         try (InputStream is = cl.getResourceAsStream("new_dbEnd.xlsx")) {
             XLS xls = new XLS(is);
@@ -64,7 +64,7 @@ public class FilesTests {
             Assertions.assertThat(stringCellValue).contains("2010-01-01 00:00:00");
 
         }
-    }
+    }*/
 
 
     @Test
