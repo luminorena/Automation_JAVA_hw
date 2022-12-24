@@ -50,7 +50,7 @@ public class FilesTests {
             Assertions.assertThat(row[1]).isEqualTo("p2");
         }
     }
-
+    @Disabled
     @Test
  void xlsxTest() throws IOException {
         try (InputStream is = cl.getResourceAsStream("new_dbEnd.xlsx")) {
