@@ -1,5 +1,6 @@
 package parametrizedTests.tests;
 
+import org.junit.jupiter.api.Disabled;
 import parametrizedTests.data.ItemName;
 import parametrizedTests.data.MainElements;
 import com.codeborne.selenide.CollectionCondition;
@@ -14,7 +15,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class WildberriesParamsTests {
-
+    @Disabled
     @ValueSource(strings = {"платье", "брюки"})
     @ParameterizedTest(name = "Проверка поиска по категориям для запроса {0}")
     void searchItemsTests(String testData) {
@@ -22,7 +23,7 @@ public class WildberriesParamsTests {
         $("#searchInput").setValue(testData).pressEnter();
         $(".goods-name").shouldHave(text(testData));
     }
-
+    @Disabled
     @CsvSource({"платье, По запросу «платье» найдено", "брюки, По запросу «брюки» найдено"})
     @ParameterizedTest(name = "Проверка отображения результатов по запросу {0}")
     void checkGeneralResultsTests(String searchQuery, String resultString) {
@@ -39,7 +40,7 @@ public class WildberriesParamsTests {
                         "Брюки для малышей"))
         );
     }
-
+    @Disabled
     @MethodSource("arraySearchTestData")
     @ParameterizedTest(name = "Проверка совпадения массива объектов по запросу {0}")
     void checkArraySearchTests(ItemName itemName, List<String> objects) {
@@ -50,7 +51,7 @@ public class WildberriesParamsTests {
                 .first(2)
                 .shouldHave(CollectionCondition.texts(objects));
     }
-
+    @Disabled
     @EnumSource(MainElements.class)
     @ParameterizedTest
     void checkLocale(MainElements mainElements) {

@@ -1,11 +1,12 @@
-/*
 package workWithFiles;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -50,9 +51,8 @@ public class FilesTests {
         }
     }
 
-   // @Test
-   */
-/* void xlsxTest() throws IOException {
+    @Test
+ void xlsxTest() throws IOException {
         try (InputStream is = cl.getResourceAsStream("new_dbEnd.xlsx")) {
             XLS xls = new XLS(is);
             String stringCellValue = xls
@@ -64,7 +64,7 @@ public class FilesTests {
             Assertions.assertThat(stringCellValue).contains("2010-01-01 00:00:00");
 
         }
-    }*//*
+    }
 
 
     @Test
@@ -74,4 +74,4 @@ public class FilesTests {
     }
 
 
-}*/
+}
