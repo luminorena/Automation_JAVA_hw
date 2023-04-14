@@ -1,5 +1,20 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+allure {
+    report {
+        version.set("2.18.1");
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.18.1")
+            }
+        }
+    }
 }
 
 group 'org.example'
@@ -7,6 +22,12 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 compileJava {
@@ -18,13 +39,27 @@ compileTestJava {
 }
 
 dependencies {
-    testImplementation ( 'com.codeborne:selenide:6.8.1',
-            "org.junit.jupiter:junit-jupiter:5.9.1",
-            "com.github.javafaker:javafaker:1.0.2"
+    testImplementation ('com.codeborne:selenide:6.12.3',
+            'com.codeborne:selenide:6.12.3',
+            'org.junit.jupiter:junit-jupiter:5.9.2',
+            "com.github.javafaker:javafaker:1.0.2",
+            'org.assertj:assertj-core:3.24.2',
+            "com.codeborne:pdf-test:1.7.0",
+            'com.codeborne:xls-test:1.6.0',
+            'com.opencsv:opencsv:5.7.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.14.2',
+            'io.qameta.allure:allure-selenide:2.21.0'
     )
+    testRuntimeOnly('org.slf4j:slf4j-simple:2.0.5')
 
+}
+task xlsxExclude(type: Test) {
+    useJUnitPlatform {
+        excludeTags "xlsx"
+    }
 }
 
 test {
     useJUnitPlatform()
 }
+
