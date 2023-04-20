@@ -3,7 +3,6 @@ package OwnerTests.tests;
 import OwnerTests.data.ItemName;
 import OwnerTests.data.MainElements;
 import OwnerTests.pages.ChooseProductsPage;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
