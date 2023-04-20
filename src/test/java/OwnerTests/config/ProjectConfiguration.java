@@ -1,6 +1,7 @@
 package OwnerTests.config;
 
 import com.codeborne.selenide.Configuration;
+import com.google.common.base.Strings;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -15,7 +16,7 @@ public class ProjectConfiguration {
 
 
         String remoteUrl = config.remoteWebDriverUrl();
-        if (remoteUrl != null) {
+        if (!Strings.isNullOrEmpty(remoteUrl)) {
             Configuration.remote = remoteUrl;
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
